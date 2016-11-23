@@ -9,15 +9,13 @@ app.setApplicationName('Corse-Work.git')
 form_class, base_class = loadUiType('subject.ui')
 
 
-class Subject(QDialog, form_class):
+class Subject(form_class, base_class = loadUiType('subject.ui')):
     def __init__(self, *args):
         super(Subject, self).__init__(*args)
 
         self.setupUi(self)
 
-
-if __name__ == '__main__':
-    form = Subject()
-    form.setWindowTitle('Corse-Work.git')
-    form.show()
-    sys.exit(app.exec_())
+form = Subject()
+form.setWindowTitle('Corse-Work.git')
+form.show()
+sys.exit(app.exec_())

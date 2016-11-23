@@ -1,15 +1,15 @@
 import sys
 
 from view.student.student import Student
-from view.student.subject import Subject
+from view.subject.subject import Subject
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.uic import loadUiType
 from PyQt5.QtGui import QIcon
 
 app = QApplication(sys.argv)
-app.setApplicationName('Corse-Work.git')
 form_class, base_class = loadUiType('general.ui')
+
 
 
 class MainWindow(QDialog, form_class):
@@ -24,11 +24,14 @@ class MainWindow(QDialog, form_class):
         self.setWindowIcon(QIcon("images.png"))
 
     def btnclickstudent(self):
-        self.Student()
+        form_class = loadUiType(QDialog,'mstudent.ui')
+        self.Student(QDialog, form_class)
 
     def btnclicksubject(self):
-        self.Subject()
+        form_class = loadUiType(QDialog, 'subject.ui')
+        self.Subject(QDialog, form_class)
 
 
+MainWindow()
 
 
