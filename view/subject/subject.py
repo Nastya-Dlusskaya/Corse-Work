@@ -3,19 +3,18 @@ import sys
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.uic import loadUiType
+from view.subject.subject_ui import Ui_Form
 
 app = QApplication(sys.argv)
-app.setApplicationName('Corse-Work.git')
-form_class, base_class = loadUiType('subject.ui')
+#form_class, base_class = loadUiType('subject.ui')
 
 
-class Subject(form_class, base_class = loadUiType('subject.ui')):
+class Subject(QDialog):
     def __init__(self, *args):
         super(Subject, self).__init__(*args)
 
-        self.setupUi(self)
+        Ui_Form()
 
 form = Subject()
-form.setWindowTitle('Corse-Work.git')
 form.show()
 sys.exit(app.exec_())
