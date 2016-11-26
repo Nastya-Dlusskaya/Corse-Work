@@ -2,18 +2,22 @@ import sys
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5.uic import loadUiType
-from view.subject.subject_ui import Ui_Form
-
+from PyQt5 import uic
 app = QApplication(sys.argv)
-#form_class, base_class = loadUiType('subject.ui')
-
 
 class Subject(QDialog):
     def __init__(self, *args):
-        super(Subject, self).__init__(*args)
+        super().__init__()
 
-        Ui_Form()
+        uic.loadUi("subject.ui", self)
+
+    def subject_table(self):
+        pass
+
+    def createnew(self):
+        pass
+
+
 
 form = Subject()
 form.show()

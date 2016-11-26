@@ -2,27 +2,36 @@ import sys
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5.uic import loadUiType
+from PyQt5 import uic
 from PyQt5.QtGui import QIcon
-from view.student.mstudent_ui import Ui_Form
+
 
 app = QApplication(sys.argv)
 app.setApplicationName('Corse-Work.git')
-#form_class, base_class = loadUiType('mstudent.ui')
-
 
 class Student(QDialog):
     def __init__(self, *args):
-        super(Student, self).__init__(*args)
+        super().__init__()
 
-        Ui_Form.setupUi()
+        uic.loadUi("mstudent.ui", self)
+
 
 
     def btn_student(self):
-        print(1)
+        pass
+
+    def addEndPeriod(self):
+        pass
+
+    def addStartPeriod(self):
+        pass
+
+    def addStudent(self):
+        pass
 
 
-if __name__ == "main":
+if __name__ == '__main__':
     form = Student()
+    form.setWindowTitle('Corse-Work.git')
     form.show()
     sys.exit(app.exec_())
