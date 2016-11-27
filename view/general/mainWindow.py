@@ -3,6 +3,8 @@ import sys
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.uic import loadUiType
+from view.student.student import Student
+from view.subject.subject import Subject
 
 app = QApplication(sys.argv)
 app.setApplicationName('Corse-Work.git')
@@ -14,10 +16,16 @@ class MainWindow(QDialog, form_class):
 
         self.setupUi(self)
 
+    def subjectShow(self):
+        self.sub = Subject(self)
+        self.sub.show()
+
+
     def studentShow(self):
+        self.stud = Student.init(self.mainwindow)
+        self.stud.show()
 
 
-        pass
 
 
 

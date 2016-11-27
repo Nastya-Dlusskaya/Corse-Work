@@ -2,18 +2,21 @@ import sys
 
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5 import uic
-from PyQt5.QtGui import QIcon
+from PyQt5.uic import loadUiType
+
 
 
 app = QApplication(sys.argv)
 app.setApplicationName('Corse-Work.git')
+form_class, base_class = loadUiType('mstudent.ui')
 
-class Student(QDialog):
+
+class Student(QDialog, form_class):
     def __init__(self, *args):
         super().__init__()
+        self.setupUi(self)
 
-        uic.loadUi("mstudent.ui", self)
+        #uic.loadUi("mstudent.ui", self)
 
 
 
