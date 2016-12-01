@@ -1,29 +1,42 @@
 import sys
 
-from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5.uic import loadUiType
+from PyQt5 import QtGui, QtCore
+from PyQt5.QtWidgets import QApplication, QDialog, QWidget, QSplashScreen
+from PyQt5 import uic
 from view.student.student import Student
 from view.subject.subject import Subject
+from view.addpass.addpass import Pass
+from view.addStudent.addStud import AddStud
+from view.addSubject.addSub import AddSub
+
 
 app = QApplication(sys.argv)
-app.setApplicationName('Corse-Work.git')
-form_class, base_class = loadUiType('general.ui')
 
-class MainWindow(QDialog, form_class):
-    def __init__(self, *args):
-        super(MainWindow, self).__init__(*args)
-
-        self.setupUi(self)
+class MainWindow(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("D:\\course_work\\Work\\Corse-Work.git\\view\\general\\general.ui", self)
+        self.window = None
 
     def subjectShow(self):
-        self.sub = Subject(self)
-        self.sub.show()
+        self.window = Subject()
 
 
     def studentShow(self):
-        self.stud = Student.init(self.mainwindow)
-        self.stud.show()
+        self.window = Student()
+
+    def addPass(self):
+        self.window = Pass()
+
+    def AddStudent(self):
+        self.window = AddStud()
+
+    def AddSubject(self):
+        self.window = AddSub()
+
+
+
+
 
 
 

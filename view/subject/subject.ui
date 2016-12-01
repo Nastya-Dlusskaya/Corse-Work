@@ -40,10 +40,10 @@ color: rgb(180, 255, 205);</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>264</x>
      <y>380</y>
-     <width>75</width>
-     <height>23</height>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -58,19 +58,6 @@ color: rgb(180, 255, 205);</string>
      <width>571</width>
      <height>192</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>414</x>
-     <y>380</y>
-     <width>91</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add new subject</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -106,22 +93,6 @@ color: rgb(180, 255, 205);</string>
    <hints>
     <hint type="sourcelabel">
      <x>127</x>
-     <y>391</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>319</x>
-     <y>239</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>createnew()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>459</x>
      <y>391</y>
     </hint>
     <hint type="destinationlabel">

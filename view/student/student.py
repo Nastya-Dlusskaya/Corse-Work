@@ -1,24 +1,26 @@
 import sys
 
 from PyQt5.QtCore import pyqtSlot
-from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5.uic import loadUiType
-
+from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5 import uic
 
 
 app = QApplication(sys.argv)
 app.setApplicationName('Corse-Work.git')
-form_class, base_class = loadUiType('mstudent.ui')
 
 
-class Student(QDialog, form_class):
+class Student(QWidget):
     def __init__(self, *args):
         super().__init__()
-        self.setupUi(self)
+        uic.loadUi("D:\\course_work\\Work\\Corse-Work.git\\view\\student\\mstudent.ui", self)
+        self.loading()
+        self.show()
 
-        #uic.loadUi("mstudent.ui", self)
-
-
+    def loading(self):
+        f = open("D:\\course_work\\Work\\Corce-Work.git\\view\\addStudent\\Student.txt", "r")
+        for line in f:
+            self.ComboBox.addItems(line)
+        f.close()
 
     def btn_student(self):
         pass
@@ -31,6 +33,7 @@ class Student(QDialog, form_class):
 
     def addStudent(self):
         pass
+
 
 
 if __name__ == '__main__':
