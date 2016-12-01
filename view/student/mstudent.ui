@@ -27,10 +27,25 @@
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>230</y>
+     <y>221</y>
      <width>461</width>
-     <height>22</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ActionsContextMenu</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="editable">
+    <bool>false</bool>
+   </property>
+   <property name="maxVisibleItems">
+    <number>104</number>
+   </property>
+   <property name="duplicatesEnabled">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
@@ -60,6 +75,15 @@
      <width>110</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="currentSection">
+    <enum>QDateTimeEdit::MonthSection</enum>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QTextBrowser" name="textBrowser">
@@ -93,6 +117,9 @@ p, li { white-space: pre-wrap; }
      <width>110</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label">

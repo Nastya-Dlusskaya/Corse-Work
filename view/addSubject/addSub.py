@@ -13,10 +13,10 @@ class AddSub(QWidget):
         self.show()
 
     def gettexting(self):
-        self.f = open("Subject.txt", "w")
+        self.f = open("D:\\course_work\\Work\\Corse-Work.git\\view\\addSubject\\Subject.txt", "a")
         self.f.write(self.lineEdit.text() + "\n")
-        self.f.close
-        app.quit()
+        self.f.close()
+        self.close()
 
 
 

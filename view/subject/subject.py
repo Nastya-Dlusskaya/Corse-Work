@@ -11,22 +11,36 @@ app = QApplication(sys.argv)
 class Subject(QWidget):
     def __init__(self):
         super().__init__()
-
         uic.loadUi("D:\\course_work\\Work\\Corse-Work.git\\view\\subject\\subject.ui", self)
+        self.loading()
         self.show()
 
+    def loading(self):
+        f = open(r"/course_work/Work/Corse-Work.git/view/addSubject/Subject.txt", "r")
+        for line in f:
+            self.comboBox.addItem(line)
+        f.close()
+
     def subject_table(self):
-        st = Student()
-
-
-    def createnew(self):
         pass
 
+    def chooseSubject(self):
+        f = open(r"/course_work/Work/Corse-Work.git/view/addSubject/Subject.txt", "r")
+        for line in f:
+            self.comboBox.addItem(line)
+        f.close()
+
+    def addStart(self):
+        return self.dateEdit_2.date()
+
+    def addEnd(self):
+        return self.dateEdit.date()
 
 
 
 
 
-#form = Subject()
-#form.show()
-#sys.exit(app.exec_())
+
+
+
+

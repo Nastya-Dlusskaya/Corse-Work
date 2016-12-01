@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Day - Book</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../general/images.png</normaloff>../general/images.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: ;
@@ -20,19 +24,22 @@ color: rgb(180, 255, 205);</string>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>70</y>
-     <width>251</width>
+     <x>190</x>
+     <y>220</y>
+     <width>401</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ActionsContextMenu</enum>
    </property>
   </widget>
   <widget class="QDateEdit" name="dateEdit">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>70</y>
-     <width>191</width>
+     <x>440</x>
+     <y>310</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
@@ -50,36 +57,63 @@ color: rgb(180, 255, 205);</string>
     <string>Perform</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>150</y>
-     <width>571</width>
-     <height>192</height>
+     <x>350</x>
+     <y>310</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>End of period</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>310</y>
+     <width>151</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>20</y>
-     <width>321</width>
-     <height>20</height>
+     <x>40</x>
+     <y>310</y>
+     <width>81</width>
+     <height>16</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Times New Roman</family>
-     <pointsize>11</pointsize>
-     <weight>75</weight>
-     <italic>true</italic>
-     <bold>true</bold>
-    </font>
+   <property name="text">
+    <string>Start of period</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>220</y>
+     <width>91</width>
+     <height>16</height>
+    </rect>
    </property>
    <property name="text">
-    <string>Choose subject and data</string>
+    <string>Choose subject</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>30</y>
+     <width>561</width>
+     <height>151</height>
+    </rect>
    </property>
   </widget>
  </widget>
@@ -101,9 +135,59 @@ color: rgb(180, 255, 205);</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>editTextChanged(QString)</signal>
+   <receiver>Form</receiver>
+   <slot>chooseSubject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dateEdit_2</sender>
+   <signal>editingFinished()</signal>
+   <receiver>Form</receiver>
+   <slot>addStart()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>320</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dateEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>Form</receiver>
+   <slot>addEnd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>515</x>
+     <y>320</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>createnew()</slot>
   <slot>subject_table()</slot>
+  <slot>addStart()</slot>
+  <slot>addEnd()</slot>
+  <slot>chooseSubject()</slot>
  </slots>
 </ui>
