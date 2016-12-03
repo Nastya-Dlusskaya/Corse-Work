@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QApplication, QDialog, QWidget, QSplashScreen
 from PyQt5 import uic
 from view.student.student import Student
 from view.subject.subject import Subject
-from view.addpass.addpass import Pass
+from view.addpass.addpass import Passes
 from view.addStudent.addStud import AddStud
 from view.addSubject.addSub import AddSub
 
@@ -26,7 +26,7 @@ class MainWindow(QWidget):
         self.window = Student()
 
     def addPass(self):
-        self.window = Pass()
+        self.window = Passes()
 
     def AddStudent(self):
         self.window = AddStud()

@@ -4,9 +4,10 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import uic
 
+from view.baseconnect.baseconnect import Base
 app = QApplication(sys.argv)
 
-class Pass(QWidget):
+class Passes(QWidget):
     def __init__(self):
         super().__init__()
         uic.loadUi('D:\\course_work\\Work\\Corse-Work.git\\view\\addpass\\pass.ui', self)
@@ -25,7 +26,12 @@ class Pass(QWidget):
 
 
     def addPass(self):
-        pass
+        self.base = Base()
+        self.date = self.addDate()
+        self.student = self.addStudent()
+        self.subject = self.addSubject()
+        self.base.addPass(self.date, self.student, self.subject)
+        self.close()
 
     def addStudent(self):
         return self.comboBox.currentText()
@@ -37,7 +43,7 @@ class Pass(QWidget):
         return self.dateEdit.date()
 
 if __name__ == '__main__':
-    form = Pass()
+    form = Passes()
     form.setWindowTitle('Day - Book')
     form.show()
     sys.exit(app.exec_())
