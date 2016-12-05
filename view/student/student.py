@@ -7,7 +7,7 @@ ICON_DIR = path.dirname(__file__)
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import uic
-
+from view.baseconnect.baseconnect import Base
 
 app = QApplication(sys.argv)
 app.setApplicationName('Corse-Work.git')
@@ -29,17 +29,12 @@ class Student(QWidget):
         f.close()
 
     def btn_student(self):
-        pass
-
-    def addEndPeriod(self):
-        return self.dateEdit_2.date()
-
-    def addStartPeriod(self):
-        return self.dateEdit.date()
-
+        search = Base()
+        search.makeListStudent(self.addStudent())
+        self.close()
 
     def addStudent(self):
-        return
+        return  self.comboBox.currentText()
 
 
 

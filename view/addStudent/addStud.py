@@ -13,7 +13,7 @@ class AddStud(QWidget):
 
     def gettexting(self):
         self.f = open("D:\\course_work\\Work\\Corse-Work.git\\view\\addStudent\\Student.txt", "a")
-        self.f.write(self.lineEdit.text() + "\n")
+        self.f.writelines(self.lineEdit.text())
         self.f.close
         self.close()
 

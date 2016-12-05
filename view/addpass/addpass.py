@@ -17,11 +17,11 @@ class Passes(QWidget):
     def loading(self):
         f = open(r"/course_work/Work/Corse-Work.git/view/addStudent/Student.txt", "r")
         for line in f:
-            self.comboBox.addItem(line)
+            self.comboBox_2.addItem(line)
         f.close()
         f = open(r"/course_work/Work/Corse-Work.git/view/addSubject/Subject.txt", "r")
         for line in f:
-            self.comboBox_2.addItem(line)
+            self.comboBox.addItem(line)
         f.close()
 
 
@@ -30,7 +30,7 @@ class Passes(QWidget):
         self.date = self.addDate()
         self.student = self.addStudent()
         self.subject = self.addSubject()
-        self.base.addPass(self.date, self.student, self.subject)
+        self.base.addPass(self.subject, self.date, self.student)
         self.close()
 
     def addStudent(self):
@@ -40,7 +40,8 @@ class Passes(QWidget):
          return self.comboBox_2.currentText()
 
     def addDate(self):
-        return self.dateEdit.date()
+        return self.dateEdit.date().toString("yyyy.MM.dd")
+
 
 if __name__ == '__main__':
     form = Passes()

@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import uic
-from view.student.student import Student
+from view.baseconnect.baseconnect import Base
 
 
 app = QApplication(sys.argv)
@@ -22,7 +22,10 @@ class Subject(QWidget):
         f.close()
 
     def subject_table(self):
-        pass
+        self.base = Base()
+        self.base.makeListSubject(self.addSubject())
+        self.close()
+
 
     def chooseSubject(self):
         f = open(r"/course_work/Work/Corse-Work.git/view/addSubject/Subject.txt", "r")
@@ -30,12 +33,14 @@ class Subject(QWidget):
             self.comboBox.addItem(line)
         f.close()
 
-    def addStart(self):
-        return self.dateEdit_2.date()
+    def addSubject(self):
+        return self.comboBox.currentText()
 
-    def addEnd(self):
-        return self.dateEdit.date()
 
+if __name__ == '__main__':
+    form = Subject()
+    form.show()
+    sys.exit(app.exec_())
 
 
 

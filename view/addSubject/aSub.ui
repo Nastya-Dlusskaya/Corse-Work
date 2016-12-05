@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,6 +15,10 @@
   </property>
   <property name="windowTitle">
    <string>Day - Book</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../general/images.png</normaloff>../general/images.png</iconset>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">

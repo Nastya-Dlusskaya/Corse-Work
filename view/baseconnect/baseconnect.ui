@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Day - Book</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../general/images.png</normaloff>../general/images.png</iconset>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -34,14 +38,23 @@
     <string>Information about pass</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>35</x>
-     <y>80</y>
+     <x>40</x>
+     <y>60</y>
      <width>561</width>
-     <height>351</height>
+     <height>391</height>
     </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+   <property name="overwriteMode">
+    <bool>true</bool>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::TextSelectableByMouse</set>
    </property>
   </widget>
  </widget>

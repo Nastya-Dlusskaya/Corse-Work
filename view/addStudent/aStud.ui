@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Day - Booh</string>
+   <string>Day - Book</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -20,21 +20,30 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>81</width>
-     <height>20</height>
+     <x>80</x>
+     <y>0</y>
+     <width>261</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Enter Student</string>
+    <string>Enter First name and name of student</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>82</x>
-     <y>30</y>
+     <x>40</x>
+     <y>40</y>
      <width>261</width>
      <height>20</height>
     </rect>

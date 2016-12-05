@@ -1,35 +1,64 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5 import uic, QtSql
-from PyQt5.QtWidgets import QWidget
+from PyQt5 import uic, QtSql, QtCore, QtWidgets
+from PyQt5.QtWidgets import QWidget, QTableView
 from PyQt5.QtSql import QSqlQuery
 
 app = QApplication(sys.argv)
 
 class Base(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.con = QtSql.QSqlDatabase.addDatabase('QSQLITE3')
-        self.con.setDatabaseName('D:\\course_work\\Work\\Corse-Work.git\\view\\baseconnect\\Test2.db')
-        self.con.open()
+
+    def addPass(self, subject, date, student):
+        con = QtSql.QSqlDatabase.addDatabase("QSQLITE")
+        con.setDatabaseName('D:\\course_work\\Work\\Corse-Work.git\\view\\baseconnect\\Test2.db')
+        con.open()
+        s = "INSERT INTO my_base VALUES('" + str(subject) + "','" + str(date) + "','" + str(student)+ "')"
+        QtSql.QSqlQuery().exec(s)
+        con.close()
+
+    def makeListStudent(self, student):
+        con = QtSql.QSqlDatabase.addDatabase("QSQLITE")
+        con.setDatabaseName('D:\\course_work\\Work\\Corse-Work.git\\view\\baseconnect\\Test2.db')
+        con.open()
+        query = QtSql.QSqlQuery("SELECT * FROM my_base WHERE student = '" + student + "'")
+        lst = []
+        while query.next():
+            stud = query.value('student')
+            data = query.value('data')
+            sub = query.value('sub')
+            lst.append(str(stud) + " " + str(data) + " " + str(sub))
+        self.table(lst)
+        con.close()
+
+    def makeListSubject(self, subject):
+        con = QtSql.QSqlDatabase.addDatabase("QSQLITE")
+        con.setDatabaseName('D:\\course_work\\Work\\Corse-Work.git\\view\\baseconnect\\Test2.db')
+        con.open()
+        query = QtSql.QSqlQuery("SELECT * FROM my_base WHERE subject = '" + subject + "'")
+        lst = []
+        while query.next():
+            sub = query.value('subject')
+            data = query.value('data')
+            stud = query.value('student')
+            lst.append(stud + " " + data + " " + sub)
+        self.table(lst)
+        con.close()
+
+    def table(self, lst):
+        self.window = uic.loadUi('D:\\course_work\\Work\Corse-Work.git\\view\\baseconnect\\baseconnect.ui')
+        if lst == []:
+            self.window.textEdit.setText("None")
+            print("none")
+        for line in lst:
+            self.window.textEdit.setText(line)
+            print(line)
+        self.window.show()
 
 
-    def student_question(self):
-        self.query = QtSql.QSqlQuery()
-        self.query.prepare("")
-
-    def addPass(self, subject = "qwer", date = 12.03, student = "wertyui"):
-        self.query = QtSql.QSqlQuery()
-        self.query.prepare("Insert INTO table_name VALUES(?, ?, ?)")
-        self.query.addBindValue(subject)
-        self.query.addBindValue(date)
-        self.query.addBindValue(student)
-        self.con.commit()
-        self.con.close()
 
 
 if __name__ == '__main__':
     form = Base()
-    form.addPass()
+    form.makeListSubject("ЭВМ")
     sys.exit(app.exec_())
