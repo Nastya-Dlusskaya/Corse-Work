@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
+    <width>663</width>
     <height>480</height>
    </rect>
   </property>
@@ -44,7 +44,7 @@
      <x>40</x>
      <y>60</y>
      <width>561</width>
-     <height>391</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -55,6 +55,25 @@
    </property>
    <property name="textInteractionFlags">
     <set>Qt::TextSelectableByMouse</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>160</y>
+     <width>561</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="textElideMode">
+    <enum>Qt::ElideMiddle</enum>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::DotLine</enum>
+   </property>
+   <property name="sortingEnabled">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

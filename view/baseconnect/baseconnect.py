@@ -1,11 +1,12 @@
 import sys
 
-from PyQt5.QtWidgets import QApplication, QDialog
-from PyQt5 import uic, QtSql, QtCore, QtWidgets
-from PyQt5.QtWidgets import QWidget, QTableView
-from PyQt5.QtSql import QSqlQuery
+from PyQt5.QtWidgets import QApplication
+from PyQt5 import uic, QtSql
+from PyQt5.QtWidgets import QWidget, QTableWidgetItem
+
 
 app = QApplication(sys.argv)
+
 
 class Base(QWidget):
 
@@ -24,10 +25,14 @@ class Base(QWidget):
         query = QtSql.QSqlQuery("SELECT * FROM my_base WHERE student = '" + student + "'")
         lst = []
         while query.next():
-            stud = query.value('student')
+            line = []
+            sub = query.value('subject')
             data = query.value('data')
-            sub = query.value('sub')
-            lst.append(str(stud) + " " + str(data) + " " + str(sub))
+            stud = query.value('student')
+            line.append(stud)
+            line.append(data)
+            line.append(sub)
+            lst.append(line)
         self.table(lst)
         con.close()
 
@@ -38,21 +43,44 @@ class Base(QWidget):
         query = QtSql.QSqlQuery("SELECT * FROM my_base WHERE subject = '" + subject + "'")
         lst = []
         while query.next():
+            line = []
             sub = query.value('subject')
             data = query.value('data')
             stud = query.value('student')
-            lst.append(stud + " " + data + " " + sub)
+            line.append(stud)
+            line.append(data)
+            line.append(sub)
+            lst.append(line)
+        self.table(lst)
+        con.close()
+
+    def makeListDate(self, date):
+        con = QtSql.QSqlDatabase.addDatabase("QSQLITE")
+        con.setDatabaseName('D:\\course_work\\Work\\Corse-Work.git\\view\\baseconnect\\Test2.db')
+        con.open()
+        query = QtSql.QSqlQuery("SELECT * FROM my_base WHERE data = '" + date + "'")
+        lst = []
+        while query.next():
+            line = []
+            sub = query.value('subject')
+            data = query.value('data')
+            stud = query.value('student')
+            line.append(stud)
+            line.append(data)
+            line.append(sub)
+            lst.append(line)
         self.table(lst)
         con.close()
 
     def table(self, lst):
         self.window = uic.loadUi('D:\\course_work\\Work\Corse-Work.git\\view\\baseconnect\\baseconnect.ui')
-        if lst == []:
-            self.window.textEdit.setText("None")
-            print("none")
-        for line in lst:
-            self.window.textEdit.setText(line)
-            print(line)
+        self.window.tableWidget.clear()
+        self.window.tableWidget.setColumnCount(3)
+        self.window.tableWidget.setRowCount(len(lst))
+        for i in range(len(lst)):
+            line  = lst[i]
+            for j in range(len(line)):
+                self.window.tableWidget.setItem(i, j, QTableWidgetItem(line[j]))
         self.window.show()
 
 
@@ -60,5 +88,5 @@ class Base(QWidget):
 
 if __name__ == '__main__':
     form = Base()
-    form.makeListSubject("ЭВМ")
+    form.makeListSubject()
     sys.exit(app.exec_())

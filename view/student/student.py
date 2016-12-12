@@ -20,8 +20,6 @@ class Student(QWidget):
         self.loading()
         self.show()
 
-
-
     def loading(self):
         f = open(r"/course_work/Work/Corse-Work.git/view/addStudent/Student.txt", "r")
         for line in f:

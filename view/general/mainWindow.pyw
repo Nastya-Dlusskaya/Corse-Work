@@ -21,7 +21,6 @@ class MainWindow(QWidget):
     def subjectShow(self):
         self.window = Subject()
 
-
     def studentShow(self):
         self.window = Student()
 
@@ -33,6 +32,18 @@ class MainWindow(QWidget):
 
     def AddSubject(self):
         self.window = AddSub()
+
+    def deleteStudent(self):
+        pass
+
+    def deleteSubject(self):
+        pass
+
+    def dateShow(self):
+        pass
+
+    def deleteBase(self):
+        pass
 
 
 
