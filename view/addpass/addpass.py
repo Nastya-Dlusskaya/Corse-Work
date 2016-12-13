@@ -24,7 +24,6 @@ class Passes(QWidget):
             self.comboBox.addItem(line)
         f.close()
 
-
     def addPass(self):
         self.base = Base()
         self.date = self.addDate()
@@ -40,6 +39,10 @@ class Passes(QWidget):
          return self.comboBox_2.currentText()
 
     def addDate(self):
+        f = open(r"/course_work/Work/Corse-Work.git/view/date/Date.txt", "a")
+        f.writelines(self.dateEdit.date().toString("yyyy.MM.dd"))
+        f.write("\n")
+        f.close()
         return self.dateEdit.date().toString("yyyy.MM.dd")
 
 

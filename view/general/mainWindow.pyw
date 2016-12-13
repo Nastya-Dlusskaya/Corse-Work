@@ -1,14 +1,16 @@
 import sys
 
-from PyQt5 import QtGui, QtCore
-from PyQt5.QtWidgets import QApplication, QDialog, QWidget, QSplashScreen
+from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import uic
 from view.student.student import Student
 from view.subject.subject import Subject
 from view.addpass.addpass import Passes
 from view.addStudent.addStud import AddStud
 from view.addSubject.addSub import AddSub
-
+from view.date.Date import DateWork
+from view.baseconnect.baseconnect import Base
+from view.delSubject.deleteSubject import delSubject
+from view.delStudent.deleteStudent import delStudent
 
 app = QApplication(sys.argv)
 
@@ -34,16 +36,14 @@ class MainWindow(QWidget):
         self.window = AddSub()
 
     def deleteStudent(self):
-        pass
+        self.window = delStudent()
 
     def deleteSubject(self):
-        pass
+        self.window = delSubject()
 
     def dateShow(self):
-        pass
+        self.window = DateWork()
 
-    def deleteBase(self):
-        pass
 
 
 

@@ -27,8 +27,8 @@ class Student(QWidget):
         f.close()
 
     def btn_student(self):
-        search = Base()
-        search.makeListStudent(self.addStudent())
+        self.search = Base()
+        self.search.makeListStudent(self.addStudent())
         self.close()
 
     def addStudent(self):

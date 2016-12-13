@@ -131,19 +131,6 @@ p, li { white-space: pre-wrap; }
     <string>Delete subject</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_9">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>400</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Delete base</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_8">
    <property name="geometry">
     <rect>
@@ -265,22 +252,6 @@ p, li { white-space: pre-wrap; }
     <hint type="sourcelabel">
      <x>540</x>
      <y>355</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>319</x>
-     <y>239</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_9</sender>
-   <signal>clicked()</signal>
-   <receiver>Form</receiver>
-   <slot>deleteBase()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>540</x>
-     <y>405</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>

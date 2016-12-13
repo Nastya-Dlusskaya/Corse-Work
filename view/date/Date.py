@@ -16,14 +16,14 @@ class DateWork(QWidget):
         self.show()
 
     def loading(self):
-        f = open(r"/course_work/Work/Corse-Work.git/view/addStudent/Date.txt", "r")
+        f = open(r"/course_work/Work/Corse-Work.git/view/date/Date.txt", "r")
         for line in f:
             self.comboBox.addItem(line)
         f.close()
 
     def btn_date(self):
-        search = Base()
-        search.makeListDate(self.addDate())
+        self.search = Base()
+        self.search.makeListDate(self.addDate())
         self.close()
 
     def addDate(self):
