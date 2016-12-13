@@ -102,7 +102,7 @@ p, li { white-space: pre-wrap; }
    <sender>comboBox</sender>
    <signal>editTextChanged(QString)</signal>
    <receiver>Form</receiver>
-   <slot>chooseSubject()</slot>
+   <slot>loading()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>390</x>
@@ -120,5 +120,6 @@ p, li { white-space: pre-wrap; }
   <slot>addStart()</slot>
   <slot>addEnd()</slot>
   <slot>chooseSubject()</slot>
+  <slot>loading()</slot>
  </slots>
 </ui>

@@ -20,8 +20,6 @@ class Student(QWidget):
         self.loading()
         self.show()
 
-
-
     def loading(self):
         f = open(r"/course_work/Work/Corse-Work.git/view/addStudent/Student.txt", "r")
         for line in f:
@@ -29,8 +27,8 @@ class Student(QWidget):
         f.close()
 
     def btn_student(self):
-        search = Base()
-        search.makeListStudent(self.addStudent())
+        self.search = Base()
+        self.search.makeListStudent(self.addStudent())
         self.close()
 
     def addStudent(self):

@@ -4,40 +4,33 @@ from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5 import uic
 from view.baseconnect.baseconnect import Base
 
-
 app = QApplication(sys.argv)
 
-class Subject(QWidget):
+
+
+class DateWork(QWidget):
     def __init__(self):
         super().__init__()
-        uic.loadUi("D:\\course_work\\Work\\Corse-Work.git\\view\\subject\\subject.ui", self)
+        uic.loadUi("D:\\course_work\\Work\\Corse-Work.git\\view\\date\\dateShow.ui", self)
         self.loading()
         self.show()
 
     def loading(self):
-        f = open(r"/course_work/Work/Corse-Work.git/view/addSubject/Subject.txt", "r")
+        f = open(r"/course_work/Work/Corse-Work.git/view/date/Date.txt", "r")
         for line in f:
             self.comboBox.addItem(line)
         f.close()
 
-    def subject_table(self):
-        self.base = Base()
-        self.base.makeListSubject(self.addSubject())
+    def btn_date(self):
+        self.search = Base()
+        self.search.makeListDate(self.addDate())
         self.close()
 
-    def addSubject(self):
-        return self.comboBox.currentText()
+    def addDate(self):
+        return  self.comboBox.currentText()
 
 
 if __name__ == '__main__':
-    form = Subject()
+    form = DateWork()
     form.show()
     sys.exit(app.exec_())
-
-
-
-
-
-
-
-
